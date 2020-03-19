@@ -1,0 +1,20 @@
+# Basic Information
+Time: 2020/03/15
+Env: Test Environment
+JVM params: xmx: 4G
+
+# Backgroud 
+
+OOM occurs Frequently and the jvm is unavailiable but not dead at last. When the OOM occurs at beginning, Full GC occurs always but after a while, no Full GC occurs , the JVM has no response.
+
+# Tools to detect the problem
+
+1. Use jmap -histo to check the objects in use 
+2. Use jmap -heap to check how much memory used
+3. Use jstat -gcutil to monitor the gc 
+
+
+#  Consolusion
+
+In a transaction, too many objects is loaded from the DB, each of which needs a lot memory, and the we can not load all Objects into Mem at once.
+
